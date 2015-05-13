@@ -46,13 +46,11 @@ function details(id)
         '<div><button class="btn btn-danger order" type="button">Order</button></div>' +
         '</div>');
             $.each(objJSON, function(key, val){
-                $.each(val, function(key, val){
-                    if ('id' == key) {
+                          if ('id' == key) {
                         $('.order').attr('name', val)
                     } else {
                         $('.details' ).append('<p>' + key + ': ' + val + '</p>');
                     }
-                })
             })
         } else {
 
