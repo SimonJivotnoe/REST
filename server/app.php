@@ -20,8 +20,8 @@ $app->get('/api/autos', function() use ($app) {
     $data = array();
     foreach( $robots as $robot){
         $data[] = array(
-            'id' => $robot->id,
-            'brand' => $robot->brand,
+            'id' => $robot->getId(),
+            'brand' => $robot->getBrand()
         );
     }
 
