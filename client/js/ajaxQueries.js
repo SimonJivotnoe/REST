@@ -40,7 +40,7 @@ function details(id)
     } ).then( function ( data )
     {
         var objJSON = JSON.parse( data );console.log($(objJSON).size());//array('status' => 'NOT-FOUND')
-        if (objJSON.length > 0) {
+        if ($(objJSON).size()> 0) {
         $('.content' ).html('<div class="col-md-4 col-md-offset-1 well">' +
         '<div class="details"></div>' +
         '<div><button class="btn btn-danger order" type="button">Order</button></div>' +
