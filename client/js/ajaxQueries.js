@@ -15,7 +15,7 @@ function listOfAutos()
         url   : '/~user1/PHP/rest/client/api/autos/',
         method: 'GET'
     } ).then( function ( data )
-    {
+    {console.log(data);
         var objJSON = JSON.parse( data );
         $.each(objJSON, function(key, val){
             $.each(val, function(key, val){
