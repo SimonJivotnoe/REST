@@ -42,13 +42,9 @@ $app->get('/api/autos/{id:[0-9]+}', function($id) use ($app){
     if ($robot == false) {
         $response->setJsonContent(array('status' => 'NOT-FOUND'));
     } else {
-        echo 'lala';
         $response->setJsonContent(array(
-            'status' => 'FOUND',
-            'data' => array(
-                'id' => $robot->getId(),
-                'name' => $robot->getBrand()
-            )
+                'id' => $robot->id,
+                'name' => $robot->brand
         ));
     }
     
