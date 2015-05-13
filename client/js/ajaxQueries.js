@@ -38,8 +38,8 @@ function details(id)
         url   : '/~user1/PHP/rest/client/api/autos/' + id,
         method: 'GET'
     } ).then( function ( data )
-    {console.log(data);
-        var objJSON = JSON.parse( data );
+    {
+        var objJSON = JSON.parse( data );console.log(objJSON.length);
         if (objJSON.length > 0) {
         $('.content' ).html('<div class="col-md-4 col-md-offset-1 well">' +
         '<div class="details"></div>' +
