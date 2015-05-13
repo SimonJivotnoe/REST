@@ -27,6 +27,33 @@ $app->get('/api/autos', function() use ($app) {
 
     echo json_encode($data);
 });
+
+// Получение робота по ключу
+$app->get('/api/autos/{id:[0-9]+}', function($id) use ($app) {
+
+    $phql = "SELECT * FROM Autos WHERE id = :id:";
+    $robot = $app->modelsManager->executeQuery($phql, array(
+        'id' => $id
+    ))->getFirst();
+
+    //Create a response
+    $response = new Phalcon\Http\Response();
+
+    if ($robot == false) {
+        $response->setJsonContent(array('status' => 'NOT-FOUND'));
+    } else {
+        $response->setJsonContent(array(
+            'status' => 'FOUND',
+            'data' => array(
+                'id' => $robot->getId(),
+                'name' => $robot->getName()
+            )
+        ));
+    }
+    
+    echo json_encode($response);
+    //return $response;
+});
 /**
  * Not found handler
  */
