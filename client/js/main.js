@@ -2,7 +2,7 @@ $( document ).ready( function ()
 {
     listOfAutos( );
     $('body').on('click', '.product', function(){
-        var id = $(this).attr('name');console.log('ok');
+        var id = $(this).attr('name');
         details(id);
     })
 
