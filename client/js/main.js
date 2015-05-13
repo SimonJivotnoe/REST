@@ -3,7 +3,7 @@ function myFunc()
 {
 	$.ajax({
 		type: "GET",
-		url: 'api/autos',
+		url: '/~user1/PHP/rest/client/api/autos/',
 		cache: false,                                 
 		success: function(response){
 		alert(response);
