@@ -29,7 +29,7 @@ $app->get('/api/autos', function() use ($app) {
 });
 
 // Получение робота по ключу
-$app->get('/api/autos/{id:[0-9]+}', function($id) use ($app) {
+$app->get('/api/autos/{id:[0-9]+}', function($id) {
 
     $phql = "SELECT * FROM Autos WHERE id = :id:";
     $robot = $app->modelsManager->executeQuery($phql, array(
