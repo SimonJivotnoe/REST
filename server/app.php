@@ -25,8 +25,7 @@ $app->get('/api/autos', function() use ($app) {
         );
     }
 
-    //echo json_encode($data);
-    echo json_encode($robots);
+    echo json_encode($data);
 });
 /**
  * Not found handler
