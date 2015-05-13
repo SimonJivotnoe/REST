@@ -39,7 +39,7 @@ function details(id)
         method: 'GET'
     } ).then( function ( data )
     {
-        var objJSON = JSON.parse( data );console.log(objJSON.length);
+        var objJSON = JSON.parse( data );console.log(objJSON);
         if (objJSON.length > 0) {
         $('.content' ).html('<div class="col-md-4 col-md-offset-1 well">' +
         '<div class="details"></div>' +
