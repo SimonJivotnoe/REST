@@ -1,14 +1,3 @@
-/*function listOfAutos()
-{
-	$.ajax({
-		type: "GET",
-		url: '/~user1/PHP/rest/client/api/autos/',
-		cache: false,                                 
-		success: function(response){
-		console.log(response);
-		}
-	});
-}*/
 function listOfAutos()
 {
     $.ajax( {
@@ -32,7 +21,7 @@ function listOfAutos()
         $('body').fadeIn(50);
     } )
 }
-function details()
+/*function details()
 {
 	$.ajax({
 		type: "GET",
@@ -42,4 +31,31 @@ function details()
 		console.log(response);
 		}
 	});
+}*/
+function details(id)
+{
+    $.ajax( {
+        url   : '/~user1/PHP/rest/client/api/autos/' + id,
+        method: 'GET'
+    } ).then( function ( data )
+    {
+        var objJSON = JSON.parse( data );
+        if (objJSON.length > 0) {
+        $('.content' ).html('<div class="col-md-4 col-md-offset-1 well">' +
+        '<div class="details"></div>' +
+        '<div><button class="btn btn-danger order" type="button">Order</button></div>' +
+        '</div>');
+            $.each(objJSON, function(key, val){
+                $.each(val, function(key, val){
+                    if ('id' == key) {
+                        $('.order').attr('name', val)
+                    } else {
+                        $('.details' ).append('<p>' + key + ': ' + val + '</p>');
+                    }
+                })
+            })
+        } else {
+
+        }
+    } )
 }
