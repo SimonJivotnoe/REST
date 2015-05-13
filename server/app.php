@@ -29,7 +29,7 @@ $app->get('/api/autos', function() use ($app) {
 });
 
 // Получение робота по ключу
-$app->get('/api/autos/{id:[0-9]+}', function($id) {
+$app->get('/api/autos/{id:[0-9]+}', function($id) use ($app){
 
     $phql = "SELECT * FROM Autos WHERE id = :id:";
     $robot = $app->modelsManager->executeQuery($phql, array(
@@ -42,6 +42,7 @@ $app->get('/api/autos/{id:[0-9]+}', function($id) {
     if ($robot == false) {
         $response->setJsonContent(array('status' => 'NOT-FOUND'));
     } else {
+        echo 'lala';
         $response->setJsonContent(array(
             'status' => 'FOUND',
             'data' => array(
