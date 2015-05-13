@@ -46,7 +46,7 @@ $app->get('/api/autos/{id:[0-9]+}', function($id) use ($app) {
             'status' => 'FOUND',
             'data' => array(
                 'id' => $robot->getId(),
-                'name' => $robot->getName()
+                'name' => $robot->getBrand()
             )
         ));
     }
