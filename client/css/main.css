@@ -1,0 +1,20 @@
+body {
+    display:none;
+}
+.baner {
+    padding-left: 50px;
+}
+.baner:hover {
+    cursor: pointer;
+}
+.container {
+    background-color: #000000;
+    height: 100vh;
+}
+.product:hover {
+    cursor: pointer;
+}
+#successful{
+    color: green;
+    font-size: 20px;
+}
