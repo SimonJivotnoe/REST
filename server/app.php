@@ -48,7 +48,7 @@ echo json_encode($robot);
         ));
     }
     
-    //echo json_encode($response);
+    echo json_encode($response);
     //return $response;
 });
 /**
