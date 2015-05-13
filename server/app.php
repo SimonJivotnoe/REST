@@ -35,7 +35,7 @@ $app->get('/api/autos/{id:[0-9]+}', function($id) use ($app){
     $robot = $app->modelsManager->executeQuery($phql, array(
         'id' => $id
     ))->getFirst();
-
+echo json_encode($robot);
     //Create a response
     $response = new Phalcon\Http\Response();
 
@@ -48,7 +48,7 @@ $app->get('/api/autos/{id:[0-9]+}', function($id) use ($app){
         ));
     }
     
-    echo json_encode($response);
+    //echo json_encode($response);
     //return $response;
 });
 /**
