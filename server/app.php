@@ -39,7 +39,7 @@ $app->get('/api/autos/{id:[0-9]+}', function($id) use ($app){
     //Create a response
     $response = new Phalcon\Http\Response();
     if ($robot == false) {
-        $response->setJsonContent(array('status' => 'NOT-FOUND'));
+        $response->setJsonContent(array());
     } else {
         $response->setJsonContent(array(
                 'id' => $robot->getId(),
