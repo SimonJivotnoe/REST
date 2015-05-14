@@ -18,7 +18,7 @@ public function transfer ($data) {
     return $this->returnTXT($data); 
   }
 }
-public function returnJSON() {
+public function returnJSON($autos) {
   foreach( $autos as $auto){
         $this->data[] = array(
             'id' => $auto->getId(),
