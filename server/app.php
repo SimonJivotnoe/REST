@@ -31,8 +31,8 @@ $app->get('/api/autos/{string}', function($string) use ($app){
     $format = substr($string, strpos($string, ".") + 1);
     if ('' == $id) {
         $phql = "SELECT * FROM Autos ORDER BY brand";
-    $autos = $app->modelsManager->executeQuery($phql);
-    $data = array();
+        $autos = $app->modelsManager->executeQuery($phql);
+        $data = array();
     foreach( $autos as $auto){
         $data[] = array(
             'id' => $auto->getId(),
@@ -43,9 +43,7 @@ $app->get('/api/autos/{string}', function($string) use ($app){
     }
     echo json_encode($data);
     } else {
-        
-    }
-    $phql = "SELECT * FROM Autos WHERE id = :id:";
+        $phql = "SELECT * FROM Autos WHERE id = :id:";
     $auto = $app->modelsManager->executeQuery($phql, array(
         'id' => $id
     ))->getFirst();
@@ -69,6 +67,8 @@ $app->get('/api/autos/{string}', function($string) use ($app){
 
     return $response;
     //return $response;
+    }
+    
 });
 /**
  * Not found handler
