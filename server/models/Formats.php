@@ -9,7 +9,8 @@ public function __construct($format) {
 }
 public function transfer($data) {
   if ('' == $this->format || '.json' == $this->format) {
-    return $this->returnJSON($data); 
+    $res = $this->returnJSON($data);
+    echo json_encode($res);
   } else if ('.xml' == $this->format) {
     return $this->returnXML($data); 
   } else if ('.html' == $this->format) {
