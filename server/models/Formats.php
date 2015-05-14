@@ -7,7 +7,7 @@ private $data = array();
 public function __construct($format) {
   $this->format = $format;
 }
-public function transfer($data) {var_dump($this->format);
+public function transfer($data) {
   if ('' == $this->format || 'json' == $this->format) {
     $res = $this->returnJSON($data);
     echo json_encode($res);
