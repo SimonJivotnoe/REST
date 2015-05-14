@@ -11,21 +11,6 @@ $app->get('/', function () use ($app) {
     echo $app['view']->render('index');
 });
 
-$app->get('/api/autos', function() use ($app) {
-    $phql = "SELECT * FROM Autos ORDER BY brand";
-    $autos = $app->modelsManager->executeQuery($phql);
-    $data = array();
-    foreach( $autos as $auto){
-        $data[] = array(
-            'id' => $auto->getId(),
-            'img' => $auto->getImg(),
-            'brand' => $auto->getBrand(),
-            'model' => $auto->getModel()
-        );
-    }
-    echo json_encode($data);
-});
-// Получение робота по ключу
 $app->get('/api/autos/{string}', function($string) use ($app){
     $id = preg_replace("/[^0-9]/","",$string);
     $format = substr($string, strpos($string, ".") + 1);
