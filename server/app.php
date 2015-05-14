@@ -29,7 +29,7 @@ $app->get('/api/autos', function() use ($app) {
 $app->get('/api/autos/{string}', function($string) use ($app){
     $id = preg_replace("/[^0-9]/","",$string);
     $format = substr($string, strpos($string, ".") + 1);
-    if (empty($string) || empty($id)) {
+    if ('' == $id) {
         $phql = "SELECT * FROM Autos ORDER BY brand";
     $autos = $app->modelsManager->executeQuery($phql);
     $data = array();
