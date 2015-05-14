@@ -13,6 +13,12 @@ class Autos extends \Phalcon\Mvc\Model
      *
      * @var string
      */
+    protected $img;
+
+    /**
+     *
+     * @var string
+     */
     protected $brand;
 
     /**
@@ -60,6 +66,19 @@ class Autos extends \Phalcon\Mvc\Model
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Method to set the value of field img
+     *
+     * @param string $img
+     * @return $this
+     */
+    public function setImg($img)
+    {
+        $this->img = $img;
 
         return $this;
     }
@@ -166,6 +185,16 @@ class Autos extends \Phalcon\Mvc\Model
     }
 
     /**
+     * Returns the value of field img
+     *
+     * @return string
+     */
+    public function getImg()
+    {
+        return $this->img;
+    }
+
+    /**
      * Returns the value of field brand
      *
      * @return string
@@ -235,6 +264,11 @@ class Autos extends \Phalcon\Mvc\Model
         return $this->price;
     }
 
+    public function getSource()
+    {
+        return 'autos';
+    }
+
     /**
      * Independent Column Mapping.
      * Keys are the real names in the table and the values their names in the application
@@ -245,6 +279,7 @@ class Autos extends \Phalcon\Mvc\Model
     {
         return array(
             'id' => 'id', 
+            'img' => 'img', 
             'brand' => 'brand', 
             'model' => 'model', 
             'year' => 'year', 

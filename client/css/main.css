@@ -9,7 +9,7 @@ body {
 }
 .container {
     background-color: #000000;
-    height: 100vh;
+    /*height: 100vh;*/
 }
 .product:hover {
     cursor: pointer;
@@ -17,4 +17,9 @@ body {
 #successful{
     color: green;
     font-size: 20px;
+}
+.glyphicon-user {
+    cursor: pointer;
+    color: red;
+    font-size: 21px;
 }

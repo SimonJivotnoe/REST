@@ -8,7 +8,35 @@
 <body>
 <div class="container">
     <img src="img/baner.jpg" alt="" class="baner"/>
-
+    <div class="col-md-8 well">
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+        </form>
+    </div>
+    <div class="btn-group col-md-4 col-md-offset-0 well" data-toggle="buttons">
+        <label class="btn btn-primary active">
+            <input type="radio" name="options" id="JSON" autocomplete="off" checked> JSON
+        </label>
+        <label class="btn btn-success">
+            <input type="radio" name="options" id="XML" autocomplete="off"> XML
+        </label>
+        <label class="btn btn-info">
+            <input type="radio" name="options" id="HTML" autocomplete="off"> HTML
+        </label>
+        <label class="btn btn-warning">
+            <input type="radio" name="options" id="TXT" autocomplete="off"> TXT
+        </label>
+    </div>
+    <div class="col-md-12">&nbsp</div>
     <div class="col-md-6 col-md-offset-3 search">
         <div class="col-md-6">
             <input type="text" class="form-control searchInput" placeholder="Search for...">
@@ -28,6 +56,7 @@
             <button class="btn btn-warning searchBtn" type="button">Search</button>
         </div>
     </div>
+    <div class="col-md-12">&nbsp</div>
     <div class="col-md-12 content">
 
     </div>
