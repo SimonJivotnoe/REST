@@ -1,10 +1,11 @@
 $( document ).ready( function ()
 {
-    var typeId = $('.active input').attr('id').toLowerCase();
+    
     listOfAutos( );
     $('body').on('click', '.product', function(){
+        var typeId = $('.active input').attr('id').toLowerCase();
         var id = $(this).attr('name');
-        details(id);
+        details(id + '.' + typeId);
     })
 
     $('body').on('click', '.order', function(){
