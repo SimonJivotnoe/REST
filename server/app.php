@@ -29,17 +29,19 @@ $app->get('/api/autos', function() use ($app) {
 $app->get('/api/autos/{string}', function($string) use ($app){
     $id = preg_replace("/[^0-9]/","",$string);
     $format = substr($string, strpos($string, ".") + 1);
+    $objFormat = new Formats($format);
     if ('' == $id) {
         $phql = "SELECT * FROM Autos ORDER BY brand";
         $autos = $app->modelsManager->executeQuery($phql);
-        $data = array();
-    foreach( $autos as $auto){
+        //$data = array();
+    /*foreach( $autos as $auto){
         $data[] = array(
             'id' => $auto->getId(),
             'img' => $auto->getImg(),
             'brand' => $auto->getBrand(),
             'model' => $auto->getModel()
-        );
+        );*/
+        $data = $objFormat->transfer ($autos);
     }
     echo json_encode($data);
     } else {
