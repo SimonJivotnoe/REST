@@ -4,10 +4,10 @@ class Formats {
 
 private $format;
 private $data = array();
-public function __construct ($format) {
+public function __construct($format) {
   $this->format = $format;
 }
-public function transfer ($data) {
+public function transfer($data) {
   if ('' == $this->format || '.json' == $this->format) {
     return $this->returnJSON($data); 
   } else if ('.xml' == $this->format) {
