@@ -28,6 +28,7 @@ $app->get('/api/autos', function() use ($app) {
 // Получение робота по ключу
 $app->get('/api/autos/{string}', function($string) use ($app){
     $id = preg_replace("/[^0-9]/","",$string);
+    $format = substr($string, strpos($string, ".") + 1);
     $phql = "SELECT * FROM Autos WHERE id = :id:";
     $auto = $app->modelsManager->executeQuery($phql, array(
         'id' => $id
