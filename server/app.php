@@ -43,7 +43,7 @@ $app->get('/api/autos/{string}', function($string) use ($app){
         );*/
         $data = $objFormat->transfer($autos);
 
-    echo json_encode($data);
+    //echo json_encode($data);
     } else {
         $phql = "SELECT * FROM Autos WHERE id = :id:";
     $auto = $app->modelsManager->executeQuery($phql, array(
