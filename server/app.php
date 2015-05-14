@@ -32,7 +32,7 @@ $app->get('/api/autos/{string}', function($string) use ($app){
     $objFormat = new Formats($format);
     if ('' == $id) {
         $phql = "SELECT * FROM Autos ORDER BY brand";
-        $autos = $app->modelsManager->executeQuery($phql);
+        $autos = $app->modelsManager->executeQuery($phql);var_dump($autos);
         //$data = array();
     /*foreach( $autos as $auto){
         $data[] = array(
