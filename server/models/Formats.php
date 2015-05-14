@@ -8,12 +8,12 @@ public function __construct($format) {
   $this->format = $format;
 }
 public function transfer($data) {var_dump($this->format);
-  if ('' == $this->format || '.json' == $this->format) {
+  if ('' == $this->format || 'json' == $this->format) {
     $res = $this->returnJSON($data);
     echo json_encode($res);
-  } else if ('.xml' == $this->format) {
+  } else if ('xml' == $this->format) {
     return $this->returnXML($data); 
-  } else if ('.html' == $this->format) {
+  } else if ('html' == $this->format) {
     return $this->returnHTML($data); 
   } else {
     return $this->returnTXT($data); 
