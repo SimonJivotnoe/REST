@@ -1,7 +1,7 @@
-function listOfAutos()
+function listOfAutos(string)
 {
     $.ajax( {
-        url   : '/~user1/PHP/rest/client/api/autos/',
+        url   : '/~user1/PHP/rest/client/api/autos/' + string,
         //url   : '/client/api/autos/',
         method: 'GET'
     } ).then( function ( data )
