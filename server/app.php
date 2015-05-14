@@ -41,7 +41,7 @@ $app->get('/api/autos/{string}', function($string) use ($app){
             'brand' => $auto->getBrand(),
             'model' => $auto->getModel()
         );*/
-        $data = $objFormat->transfer($autos);
+        $objFormat->transfer($autos);
 
     //echo json_encode($data);
     } else {
