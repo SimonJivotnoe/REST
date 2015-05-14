@@ -18,17 +18,7 @@ $app->get('/api/autos/{string}', function($string) use ($app){
     if ('' == $id) {
         $phql = "SELECT * FROM Autos ORDER BY brand";
         $autos = $app->modelsManager->executeQuery($phql);
-        //$data = array();
-    /*foreach( $autos as $auto){
-        $data[] = array(
-            'id' => $auto->getId(),
-            'img' => $auto->getImg(),
-            'brand' => $auto->getBrand(),
-            'model' => $auto->getModel()
-        );*/
         $objFormat->transfer($autos);
-
-    //echo json_encode($data);
     } else {
         $phql = "SELECT * FROM Autos WHERE id = :id:";
     $auto = $app->modelsManager->executeQuery($phql, array(
