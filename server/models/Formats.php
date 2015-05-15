@@ -56,7 +56,8 @@ class Formats {
         }
     }
 
-    private function returnXML($arr) {var_dump($arr);
+    private function returnXML($arr) {
+        
         $xml = new DOMDocument("1.0", "UTF-8");
 
         $xml_root = $xml->createElement("data");
