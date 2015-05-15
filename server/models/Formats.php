@@ -57,7 +57,7 @@ class Formats {
     }
 
     private function returnXML($arr) {
-        
+        header("content-type: application/xml; utf-8");
         $xml = new DOMDocument("1.0", "UTF-8");
 
         $xml_root = $xml->createElement("data");
@@ -73,7 +73,7 @@ class Formats {
             }
         }
         $xml->appendChild($xml_root);
-        return $xml;
+        echo $xml;
     }
 
     private function returnHTML($arr) {
