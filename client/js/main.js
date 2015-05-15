@@ -3,9 +3,9 @@ $( document ).ready( function ()
     var typeId = '.' + $('.active input').attr('id').toLowerCase();
     listOfAutos( typeId );
     $('body').on('click', '.product', function(){
-        var typeId = $('.active input').attr('id').toLowerCase();
+       // var typeId = '.' + $('.active input').attr('id').toLowerCase();
         var id = $(this).attr('name');
-        details(id + typeId);
+        details(id, '.json');
     })
 
     $('body').on('click', '.order', function(){
@@ -36,20 +36,21 @@ $( document ).ready( function ()
     });
 
     $('.baner').on('click', function(){
-        window.location.href = "http://192.168.0.15/~user1/PHP/rest/client/";
-        //window.location.href = "http://rest/client/";
+       // window.location.href = "http://192.168.0.15/~user1/PHP/rest/client/";
+        window.location.href = "http://rest/client/";
     })
 
     $('.searchBtn').on('click', function(){
         var searchInput = $('.searchInput').val();
         var searchOption = $('#selectSearch option:selected' ).text();
         if (searchInput.length > 0) {
-           // search(searchInput, searchOption);
+            // search(searchInput, searchOption);
         } else {
 
         }
     })
     $('label').on('click', function(){
-        var typeId = $(this ).find('input').attr('id');
+        var typeId = '.' + $(this ).find('input').attr('id').toLowerCase();
+        listOfAutos( typeId );
     })
 })
