@@ -48,9 +48,10 @@ $app->get('/api/autos/{string}', function($string) use ($app){
     }
 });
 
-$app->get('/api/autos/search/{search}', function($search) use ($app) {
-  /*  $phql = "SELECT * FROM Autos WHERE :$searchOption: LIKE :$searchInput: ORDER BY brand";
-    $autos = $app->modelsManager->executeQuery($phql, array(
+$app->get('/api/autos/search/{value}', function($value) use ($app) {
+    $table = $app['request']->getQuery('table', 'string') ?: '%';
+    $phql = "SELECT * FROM Autos WHERE :$table: LIKE :$value: ORDER BY brand";
+    /*$autos = $app->modelsManager->executeQuery($phql, array(
         'name' => '%' . $searchInput . '%'
     ));
 
