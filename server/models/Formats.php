@@ -73,7 +73,7 @@ class Formats {
             }
         }
         $xml->appendChild($xml_root);
-        echo $xml;
+        print_r($xml);
     }
 
     private function returnHTML($arr) {
