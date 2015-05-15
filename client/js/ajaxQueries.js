@@ -1,8 +1,8 @@
 function listOfAutos(string)
 {
     $.ajax( {
-        //url   : '/~user1/PHP/rest/client/api/autos/' + string,
-        url   : '/client/api/autos/' + string,
+        url   : '/~user1/PHP/rest/client/api/autos/' + string,
+        //url   : '/client/api/autos/' + string,
         method: 'GET'
     } ).then( function ( data )
     {
@@ -40,8 +40,8 @@ function listOfAutos(string)
 function details(id, typeId)
 {
     $.ajax( {
-       // url   : '/~user1/PHP/rest/client/api/autos/' + id,
-        url   : '/client/api/autos/' + id + typeId,
+        url   : '/~user1/PHP/rest/client/api/autos/' + id + typeId,
+       // url   : '/client/api/autos/' + id + typeId,
         method: 'GET'
     } ).then( function ( data )
     {
