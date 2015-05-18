@@ -145,7 +145,8 @@ $app->put('/api/autos/login', function() use ($app) {
     }
 });
 
-$app->post('/api/autos/ordersList/{token}', function($token) use ($app) {
+$app->delete('/api/autos/delete/', function() use ($app) {
+    $token = $app->request->getDelete('token');
     $phql = "SELECT * FROM UsersRest WHERE token = $token";
     $userId = $app->modelsManager->executeQuery($phql)->getFirst();
     if (count($userId)) {
