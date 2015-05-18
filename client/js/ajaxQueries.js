@@ -130,17 +130,17 @@ function logIN( dataForRequest )
 
 function logOutAjax() {
     var objJSON = JSON.parse( localStorage.getItem('hash'));
+    var token;
     $.each(objJSON, function(key, val){
-        console.log(val['hash']);
+        token = val['hash'];
     })
-    
-    var token = localStorage.getItem('hash')
     var dataForRequest = {"token": token};
-   /* $.ajax( {
+    $.ajax( {
         url   : '/~user1/PHP/rest/client/api/autos/delete',
         url   : '/client/api/autos',
-        method: 'POST',
-        data  : dataForRequest,
+        method: 'DELETE',
+        data  : dataForRequest
+        /*,
         statusCode:{
             409:function(data){
                 var objJSON = JSON.parse( data.responseText );
@@ -152,9 +152,12 @@ function logOutAjax() {
         201:function(data){
             $('.content' ).html('<span id="success">successfully</span>');
         }}
-    })
-    localStorage.clear();
+        localStorage.clear();
     window.location.href = window.location.href;*/
+    }).then( function ( data )
+    {
+    console.log(data);
+    })
 }
 
 function registrationPost( pass, email )
