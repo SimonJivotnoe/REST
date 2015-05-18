@@ -23,3 +23,17 @@ body {
     color: red;
     font-size: 21px;
 }
+#success{
+    font-size: 24px;
+    color: green;
+}
+.glyphicon-briefcase, .glyphicon-share {
+    font-size: 29px;
+    cursor: pointer;
+}
+.glyphicon-briefcase {
+    color: #002a80;
+}
+.glyphicon-share {
+    color: #b50e15;
+}
