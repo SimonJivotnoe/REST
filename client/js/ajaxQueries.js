@@ -130,7 +130,10 @@ function logIN( dataForRequest )
 
 function logOutAjax() {
     var objJSON = JSON.parse( localStorage.getItem('hash'));
-    console.log(objJSON);
+    $.each(objJSON, function(key, val){
+        console.log(val['hash']);
+    })
+    
     var token = localStorage.getItem('hash')
     var dataForRequest = {"token": token};
    /* $.ajax( {
