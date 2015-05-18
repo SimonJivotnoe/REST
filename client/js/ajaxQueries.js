@@ -108,7 +108,7 @@ function search(searchInput, searchOption)
 }
 
 function logIN( dataForRequest )
-{console.log('ok');
+{
     $.ajax( {
         url   : '/~user1/PHP/rest/client/api/autos/login',
         //url   : '/client/api/autos/login',
@@ -126,6 +126,11 @@ function logIN( dataForRequest )
             }
         }
     } )
+}
+
+function logOut() {
+    
+    
 }
 
 function registrationPost( pass, email )
