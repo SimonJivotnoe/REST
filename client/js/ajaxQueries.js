@@ -1,8 +1,8 @@
 function listOfAutos(string)
 {
     $.ajax( {
-        //url   : '/~user1/PHP/rest/client/api/autos/' + string,
-        url   : '/client/api/autos/' + string,
+        url   : '/~user1/PHP/rest/client/api/autos/' + string,
+        //url   : '/client/api/autos/' + string,
         method: 'GET'
     } ).then( function ( data )
     {
@@ -41,8 +41,8 @@ function listOfAutos(string)
 function details(id, typeId)
 {
     $.ajax( {
-       // url   : '/~user1/PHP/rest/client/api/autos/' + id,
-        url   : '/client/api/autos/' + id + typeId,
+        url   : '/~user1/PHP/rest/client/api/autos/' + id + typeId,
+       // url   : '/client/api/autos/' + id + typeId,
         method: 'GET'
     } ).then( function ( data )
     {
@@ -75,9 +75,10 @@ function details(id, typeId)
 function search(searchInput, searchOption)
 {
     $.ajax( {
-        url   : '/client/api/autos/search/' + searchInput +
+       /* url   : '/client/api/autos/search/' + searchInput +
+        '&searchOption=' + searchOption,*/
+         url   : '/~user1/PHP/rest/client/api/autos/search/' + searchInput +
         '&searchOption=' + searchOption,
-        // url   : '/~user1/PHP/rest/client/api/autos/' + id,
         method: 'GET'
     } ).then( function ( data )
     {
@@ -108,7 +109,8 @@ function search(searchInput, searchOption)
 function logIN( dataForRequest )
 {console.log('ok');
     $.ajax( {
-        url   : '/client/api/autos/login',
+        url   : '/~user1/PHP/rest/client/api/autos/login',
+        //url   : '/client/api/autos/login',
         method: 'PUT',
         data  : dataForRequest,
         cache : false,
@@ -129,7 +131,8 @@ function registrationPost( pass, email )
 {
     var dataForRequest = {"pass": pass, "email": email};
     $.ajax( {
-        url   : '/client/api/autos',
+        url   : '/~user1/PHP/rest/client/api/autos',
+       // url   : '/client/api/autos',
         method: 'POST',
         data  : dataForRequest,
         statusCode:{
