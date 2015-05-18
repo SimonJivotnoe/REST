@@ -152,6 +152,7 @@ $app->delete('/api/autos/delete/', function() use ($app) {
     if (count($userId)) {
         $id = $userId->getId();
     }
+    echo $token;
 });
 /**
  * Not found handler
