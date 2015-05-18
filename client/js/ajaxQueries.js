@@ -128,9 +128,9 @@ function logIN( dataForRequest )
     } )
 }
 
-function logOut() {
+function logOutAjax() {
     
-    
+    window.location.href = window.location.href;
 }
 
 function registrationPost( pass, email )
