@@ -129,7 +129,25 @@ function logIN( dataForRequest )
 }
 
 function logOutAjax() {
-    
+    var token = 
+    var dataForRequest = {"token": token};
+    $.ajax( {
+        url   : '/~user1/PHP/rest/client/api/autos/delete',
+       // url   : '/client/api/autos',
+        method: 'POST',
+        data  : dataForRequest,
+        statusCode:{
+            409:function(data){
+                var objJSON = JSON.parse( data.responseText );
+                $.each( objJSON, function ( key, val )
+                {
+                    $('.err' ).html(val);
+                } )
+        },
+        201:function(data){
+            $('.content' ).html('<span id="success">successfully</span>');
+        }}
+    })
     window.location.href = window.location.href;
 }
 
