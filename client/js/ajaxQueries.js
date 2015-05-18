@@ -136,11 +136,9 @@ function logOutAjax() {
     })
     var dataForRequest = {"token": token};
     $.ajax( {
-        url   : '/~user1/PHP/rest/client/api/autos/delete/' + token,
+        url   : '/~user1/PHP/rest/client/api/autos/logout/' + token,
         //url   : '/client/api/autos',
-        method: 'PUT'
-        //data  : dataForRequest
-        /*,
+        method: 'PUT',
         statusCode:{
             409:function(data){
                 var objJSON = JSON.parse( data.responseText );
@@ -149,14 +147,11 @@ function logOutAjax() {
                     $('.err' ).html(val);
                 } )
         },
-        201:function(data){
-            $('.content' ).html('<span id="success">successfully</span>');
+        666:function(data){
+            localStorage.clear();
+            window.location.href = window.location.href;
         }}
-        localStorage.clear();
-    window.location.href = window.location.href;*/
-    }).then( function ( data )
-    {
-    console.log(data);
+        
     })
 }
 
