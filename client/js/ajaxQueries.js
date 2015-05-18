@@ -129,11 +129,13 @@ function logIN( dataForRequest )
 }
 
 function logOutAjax() {
-    var token = 
+    var objJSON = JSON.parse( localStorage.getItem('hash'));
+    console.log(objJSON);
+    var token = localStorage.getItem('hash')
     var dataForRequest = {"token": token};
-    $.ajax( {
+   /* $.ajax( {
         url   : '/~user1/PHP/rest/client/api/autos/delete',
-       // url   : '/client/api/autos',
+        url   : '/client/api/autos',
         method: 'POST',
         data  : dataForRequest,
         statusCode:{
@@ -148,7 +150,7 @@ function logOutAjax() {
             $('.content' ).html('<span id="success">successfully</span>');
         }}
     })
-    window.location.href = window.location.href;
+    window.location.href = window.location.href;*/
 }
 
 function registrationPost( pass, email )
