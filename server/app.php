@@ -146,13 +146,13 @@ $app->put('/api/autos/login', function() use ($app) {
 });
 
 $app->delete('/api/autos/delete/{token}', function($token) use ($app) {
-    //$token = $app->request->getDelete('token');
     $phql = "SELECT * FROM UsersRest WHERE token = '$token'";
     $userId = $app->modelsManager->executeQuery($phql)->getFirst();
     if (count($userId)) {
         $id = $userId->getId();
+        echo $id;
     }
-    echo $token;
+    
 });
 /**
  * Not found handler
