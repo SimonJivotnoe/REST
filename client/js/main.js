@@ -108,7 +108,7 @@ function registration() {
 
 function logOut() {
     localStorage.clear();
-    window.location.href = window.location.href;
+    logOutAjax();
 }
 
 function orderBtnAction() {
