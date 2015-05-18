@@ -99,6 +99,7 @@ function search(searchInput, searchOption)
                         $('.content').children().last().find('.details').append('<p>' + key + ': ' + val + '</p>');
                     }
                 })
+                orderBtnAction();
             })
         } else {
 
