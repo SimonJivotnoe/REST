@@ -136,10 +136,10 @@ function logOutAjax() {
     })
     var dataForRequest = {"token": token};
     $.ajax( {
-        url   : '/~user1/PHP/rest/client/api/autos/delete',
-        url   : '/client/api/autos',
-        method: 'DELETE',
-        data  : dataForRequest
+        url   : '/~user1/PHP/rest/client/api/autos/delete/' + token,
+        //url   : '/client/api/autos',
+        method: 'DELETE'
+        //data  : dataForRequest
         /*,
         statusCode:{
             409:function(data){
