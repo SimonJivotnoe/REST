@@ -141,16 +141,36 @@ $app->put('/api/autos/login', function() use ($app) {
 
         return $response;
     } else {
-        print_r(count($status));
+        print_r(count($user));
     }
 });
 
-$app->put('/api/autos/delete/{token}', function($token) use ($app) {
+$app->put('/api/autos/logout/{token}', function($token) use ($app) {
     $phql = "SELECT * FROM UsersRest WHERE token = '$token'";
-    $userId = $app->modelsManager->executeQuery($phql)->getFirst();
-    if (count($userId)) {
-        $id = $userId->getId();
-        echo $id;
+    $res = $app->modelsManager->executeQuery($phql)->getFirst();
+    if (count($res)) {
+        $id = $res->getId();
+        $phql = "UPDATE UsersRest SET token = NULL WHERE id = $id";
+        $status = $app->modelsManager->executeQuery($phql);
+        $response = new Phalcon\Http\Response();
+
+        if ($status->success() == true) {
+            $response->setStatusCode(666, 'OK');
+        } else {
+
+            $response->setStatusCode(409, "Conflict");
+
+            $errors = array();
+            foreach ($status->getMessages() as $message) {
+                $errors[] = $message->getMessage();
+            }
+
+            $response->setJsonContent(array('status' => 'ERROR', 'messages' => $errors));
+        }
+
+        return $response;
+    } else {
+        print_r(count($res));
     }
     
 });
