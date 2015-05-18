@@ -107,7 +107,6 @@ function registration() {
 }
 
 function logOut() {
-    localStorage.clear();
     logOutAjax();
 }
 
