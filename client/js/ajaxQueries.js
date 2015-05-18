@@ -150,6 +150,7 @@ function logOutAjax() {
             $('.content' ).html('<span id="success">successfully</span>');
         }}
     })
+    localStorage.clear();
     window.location.href = window.location.href;*/
 }
 
