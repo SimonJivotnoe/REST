@@ -138,7 +138,7 @@ function logOutAjax() {
     $.ajax( {
         url   : '/~user1/PHP/rest/client/api/autos/delete/' + token,
         //url   : '/client/api/autos',
-        method: 'DELETE'
+        method: 'PUT'
         //data  : dataForRequest
         /*,
         statusCode:{
