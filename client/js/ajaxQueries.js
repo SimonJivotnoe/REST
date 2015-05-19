@@ -116,7 +116,7 @@ function logIN( dataForRequest )
         data  : dataForRequest,
         cache : false,
         statusCode:{
-            666:function(data){
+            201:function(data){
                 var hash = data.statusText;
                 localStorage[ 'hash' ] =
                     JSON.stringify( [ { "hash": hash } ] );
