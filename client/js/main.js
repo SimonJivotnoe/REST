@@ -29,8 +29,8 @@ $( document ).ready( function ()
     })
 
     $('body').on('click', '.confirmOrderBtn', function(){
-        var payment = $('#payment option:selected' ).text();console.log(payment);
-        var id = $(this).attr('name');console.log(id);
+        var payment = $('#payment option:selected' ).text();
+        var id = $(this).attr('name');
          confirmOrder(payment, id);
     });
 
