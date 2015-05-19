@@ -24,9 +24,7 @@ class Formats {
             $response->setHeader("Content-type", "application/xml");
             $arr = $this->returnJSON($data);
             $obj = new Array2XML();
-            $xml = $obj->convert($data);
-            echo $xml;
-            die();
+            $xml = $obj->convert(array('id' => '4', 'nsame' => 'dgrd'));
             $response->setContent($xml);
             $response->send();
         } else if ('html' == $this->format) {
