@@ -251,7 +251,12 @@ function deleteOrder(id) {
 }
 
 function confirmOrder(payment, id) {
-    var dataForRequest = {'payment' : payment, 'id' : id}
+    var objJSON = JSON.parse( localStorage.getItem('hash'));
+    var token;
+    $.each(objJSON, function(key, val){
+        token = val['hash'];
+    })
+    var dataForRequest = {'payment' : payment, 'car_id' : id, 'token' : token}
     $.ajax( {
         url   : '/~user1/PHP/rest/client/api/autos/addOrder',
          //url   : '/client/api/autos',
