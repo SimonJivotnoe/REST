@@ -125,7 +125,10 @@ function logIN( dataForRequest )
             409:function(){
             }
         }
-    } )
+    } ).then( function ( data )
+    {
+        console.log(data);
+    })
 }
 
 function logOutAjax() {
