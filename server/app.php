@@ -96,10 +96,11 @@ $app->put('/api/autos/login', function() use ($app) {
         'email' => $email,
         'pass' => $pass
     ))->getFirst();
+    print_r($user);
+        die();
     $id = '';
     if (count($user)) {
-        print_r($user);
-        die();
+        
         $id = $user->getId();
         echo $id;
         die();
