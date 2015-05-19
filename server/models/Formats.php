@@ -21,10 +21,12 @@ class Formats {
             }
         } else if ('xml' == $this->format) {
             $response = new Phalcon\Http\Response();
-            $response->setHeader("content-type", "application/xml", "utf-8");
+            $response->setHeader("Content-type", "application/xml", "utf-8");
             $arr = $this->returnJSON($data);
             $obj = new Array2XML();
-            return $obj->convert($arr);
+            $xml = $obj->convert($arr);
+            $response->setContent($xml);
+            $response->send();
         } else if ('html' == $this->format) {
             $arr = $this->returnJSON($data);
             $this->returnHTML($arr);
