@@ -42,7 +42,7 @@ function details(id, typeId)
 {
     $.ajax( {
         url   : '/~user1/PHP/rest/client/api/autos/' + id + typeId,
-       // url   : '/client/api/autos/' + id + typeId,
+        // url   : '/client/api/autos/' + id + typeId,
         method: 'GET'
     } ).then( function ( data )
     {
@@ -75,9 +75,9 @@ function details(id, typeId)
 function search(searchInput, searchOption)
 {
     $.ajax( {
-       /* url   : '/client/api/autos/search/' + searchInput +
-        '&searchOption=' + searchOption,*/
-         url   : '/~user1/PHP/rest/client/api/autos/search/' + searchInput +
+        /* url   : '/client/api/autos/search/' + searchInput +
+         '&searchOption=' + searchOption,*/
+        /url   : '/~user1/PHP/rest/client/api/autos/search/' + searchInput +
         '&searchOption=' + searchOption,
         method: 'GET'
     } ).then( function ( data )
@@ -119,7 +119,7 @@ function logIN( dataForRequest )
             666:function(data){
                 var hash = data.statusText;
                 localStorage[ 'hash' ] =
-                JSON.stringify( [ { "hash": hash } ] );
+                    JSON.stringify( [ { "hash": hash } ] );
                 window.location.href = window.location.href;
             },
             409:function(){
@@ -137,21 +137,21 @@ function logOutAjax() {
     var dataForRequest = {"token": token};
     $.ajax( {
         url   : '/~user1/PHP/rest/client/api/autos/logout/' + token,
-        //url   : '/client/api/autos',
+        //url   : '/client/api/autos/logout/' + token,
         method: 'PUT',
         statusCode:{
             409:function(data){
                 var objJSON = JSON.parse( data.responseText );
                 $.each( objJSON, function ( key, val )
                 {
-                    $('.err' ).html(val);
+
                 } )
-        },
-        666:function(data){
-            localStorage.clear();
-            window.location.href = window.location.href;
-        }}
-        
+            },
+            666:function(data){
+                localStorage.clear();
+                window.location.href = window.location.href;
+            }}
+
     })
 }
 
@@ -160,7 +160,7 @@ function registrationPost( pass, email )
     var dataForRequest = {"pass": pass, "email": email};
     $.ajax( {
         url   : '/~user1/PHP/rest/client/api/autos',
-       // url   : '/client/api/autos',
+         //url   : '/client/api/autos',
         method: 'POST',
         data  : dataForRequest,
         statusCode:{
@@ -170,30 +170,73 @@ function registrationPost( pass, email )
                 {
                     $('.err' ).html(val);
                 } )
-        },
-        201:function(data){
-            $('.content' ).html('<span id="success">successfully</span>');
-        }}
+            },
+            201:function(data){
+                $('.content' ).html('<span id="success">successfully</span>');
+            }}
     })
 }
 
 function cabinet() {
-    $('.content' ).html('<table class="table-bordered well">' +
-    '<tbody>' +
-    '<tr><th>№</th><th>Model</th><th>Price</th><th>Action</th></tr>' +
-    '</tbody>' +
-    '</table>');
+    var objJSON = JSON.parse( localStorage.getItem('hash'));
+    var token;
+    $.each(objJSON, function(key, val){
+        token = val['hash'];
+    })
+
     $.ajax( {
-        url   : '/client/api/autos/search/' + searchInput +
-        '&searchOption=' + searchOption,
-        // url   : '/~user1/PHP/rest/client/api/autos/' + id,
+        //url   : '/client/api/autos/cabinet/' + token,
+         url   : '/~user1/PHP/rest/client/api/autos/cabinet/' + token,
         method: 'GET'
     } ).then( function ( data )
     {
-
+        if (2 == data.length) {
+            $('.content' ).html('<div id="ordersEmpty">orders are empty</div>');
+        } else {
+            $('.content' ).html('<table class="table-bordered well">' +
+            '<tbody>' +
+            '<tr><th>Action</th><th>Model</th><th>Price</th></tr>' +
+            '</tbody>' +
+            '</table>');
+            var objJSON = JSON.parse( data);
+            var i = 0;
+            $.each(objJSON, function(key, val){
+                if (0 === i % 2) {
+                    $('tbody' ).append('<tr><td><span name="' + val['order_id'] +
+                    '" class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>' +
+                    '</tr>');
+                } else {
+                    $('tbody').children().last().append('<td>' + val['model'] + '</td><td>' + val['price'] + '</td>');
+                }
+                i++;
+            })
+        }
     })
 }
 
 function deleteOrder(id) {
-
+    $.ajax( {
+        //url   : '/client/api/autos/cabinet/' + id,
+         url   : '/~user1/PHP/rest/client/api/autos/cabinet/' + id,
+        method: 'DELETE',
+        statusCode:{
+            409:function(data){
+                var objJSON = JSON.parse( data.responseText );
+                $.each( objJSON, function ( key, val )
+                {
+                    $('.err' ).html(val);
+                } )
+            },
+            201:function(data){
+                $('.content' ).html('<span id="success">successfully</span>');
+            }}
+    } ).then( function ( data )
+    {
+        var objJSON = JSON.parse( data);
+        $.each(objJSON, function(key, val){
+            if ('OK' == val) {
+                cabinet();
+            }
+        })
+    })
 }
