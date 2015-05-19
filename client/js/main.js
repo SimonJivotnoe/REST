@@ -43,8 +43,7 @@ $( document ).ready( function ()
     });
 
     $('.baner').on('click', function(){
-       // window.location.href = "http://192.168.0.15/~user1/PHP/rest/client/";
-        window.location.href = "http://rest/client/";
+        window.location.href = window.location.href;
     })
 
     $('.searchBtn').on('click', function(){
