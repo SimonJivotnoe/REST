@@ -21,7 +21,7 @@ class Formats {
             }
         } else if ('xml' == $this->format) {
             $response = new Phalcon\Http\Response();
-            $response->setHeader("Content-type", "application/xml", "utf-8");
+            $response->setHeader("Content-type", "application/xml");
             $arr = $this->returnJSON($data);
             $obj = new Array2XML();
             $xml = $obj->convert($arr);
