@@ -88,6 +88,41 @@ $app->post('/api/autos', function() use ($app) {
     }
     return $response;
 });
+
+$app->post('/api/autos/addOrder', function() use ($app) {
+    $token = $app->request->getPost('token');
+    $phql = "SELECT * FROM UsersRest WHERE token = :token:";
+    $user = $app->modelsManager->executeQuery($phql, array(
+        'token' => $token
+    ))->getFirst();
+    if (count($user)) {
+        $payment = $app->request->getPost('payment');
+        $car_id = $app->request->getPost('id');
+        $id = $user->getId();
+        $phql = "INSERT INTO Orders (car_id, user_id, payment) VALUES (:car_id:, :user_id:, :payment:)";
+    $status = $app->modelsManager->executeQuery($phql, array(
+        'car_id' => $car_id,
+        'user_id' => $user_id,
+        'payment' => $payment
+    ));
+    $response = new Phalcon\Http\Response();
+    if ($status->success() == true) {
+        $response->setStatusCode(201, "Created");
+        $id = $status->getModel()->id;
+        $response->setJsonContent(array('status' => 'OK', 'data' => $id));
+    } else {
+        $response->setStatusCode(409, "Conflict");
+        $errors = array();
+        foreach ($status->getMessages() as $message) {
+            $errors[] = $message->getMessage();
+        }
+        $response->setJsonContent(array('status' => 'ERROR', 'messages' => $errors));
+    }
+    return $response;
+    }
+    
+});
+
 $app->put('/api/autos/login', function() use ($app) {
     $email = $app->request->getPut('email');
     $pass = $app->request->getPut('pass');
