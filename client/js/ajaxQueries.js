@@ -215,10 +215,16 @@ function cabinet() {
 }
 
 function deleteOrder(id) {
+    var objJSON = JSON.parse( localStorage.getItem('hash'));
+    var token;
+    $.each(objJSON, function(key, val){
+        token = val['hash'];
+    })
     $.ajax( {
         //url   : '/client/api/autos/cabinet/' + id,
          url   : '/~user1/PHP/rest/client/api/autos/cabinet/' + id,
         method: 'DELETE',
+        data: JSON.stringify({'token' : token}),
         statusCode:{
             409:function(data){
                 var objJSON = JSON.parse( data.responseText );
