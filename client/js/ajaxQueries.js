@@ -263,12 +263,7 @@ function confirmOrder(payment, id) {
         method: 'POST',
         data  : dataForRequest
     }).then( function ( data )
-    {console.log(data);
-        /*var objJSON = JSON.parse( data);
-        $.each(objJSON, function(key, val){
-            if ('OK' == val) {
-                cabinet();
-            }
-        })*/
+    {
+        cabinet();
     })
 }
