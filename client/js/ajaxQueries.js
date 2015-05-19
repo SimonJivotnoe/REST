@@ -249,3 +249,21 @@ function deleteOrder(id) {
         })
     })
 }
+
+function confirmOrder(payment, id) {
+    var dataForRequest = {'payment' : payment, 'id' : id}
+    $.ajax( {
+        url   : '/~user1/PHP/rest/client/api/autos/addOrder',
+         //url   : '/client/api/autos',
+        method: 'POST',
+        data  : dataForRequest
+    }).then( function ( data )
+    {console.log(data);
+        /*var objJSON = JSON.parse( data);
+        $.each(objJSON, function(key, val){
+            if ('OK' == val) {
+                cabinet();
+            }
+        })*/
+    })
+}
