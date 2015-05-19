@@ -77,7 +77,7 @@ function search(searchInput, searchOption)
     $.ajax( {
         /* url   : '/client/api/autos/search/' + searchInput +
          '&searchOption=' + searchOption,*/
-        /url   : '/~user1/PHP/rest/client/api/autos/search/' + searchInput +
+        url   : '/~user1/PHP/rest/client/api/autos/search/' + searchInput +
         '&searchOption=' + searchOption,
         method: 'GET'
     } ).then( function ( data )
