@@ -23,6 +23,7 @@ class Formats {
             $response = new Phalcon\Http\Response();
             $response->setHeader("Content-type", "application/xml");
             $arr = $this->returnJSON($data);
+            echo '<pre>';
             var_dump($arr);die();
             $obj = new Array2XML();
             $xml = $obj->convert(array('id' => '4', 'nsame' => 'dgrd'));
