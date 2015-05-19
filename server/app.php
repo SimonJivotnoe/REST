@@ -96,7 +96,7 @@ $app->put('/api/autos/login', function() use ($app) {
         'email' => $email,
         'pass' => $pass
     ))->getFirst();
-    echo $user;
+    echo count($user);
         die();
     $id = '';
     if (count($user)) {
