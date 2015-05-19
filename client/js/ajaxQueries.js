@@ -171,7 +171,7 @@ function registrationPost( pass, email )
                     $('.err' ).html(val);
                 } )
             },
-            201:function(data){
+            666:function(data){
                 $('.content' ).html('<span id="success">successfully</span>');
             }}
     })
