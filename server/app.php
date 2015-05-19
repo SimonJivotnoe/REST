@@ -146,7 +146,7 @@ $app->get('/api/autos/cabinet/{token}', function($token) use ($app) {
     $phql = "SELECT * FROM UsersRest WHERE token = '$token'";
     $res = $app->modelsManager->executeQuery($phql)->getFirst();
     if (count($res)) {
-        $id = $res->getUserId();
+        $id = $res->getId();
         $phql = "SELECT Orders.*, Autos.* FROM Orders JOIN Autos ON Autos.id = Orders.car_id WHERE Orders.user_id = '$id'";
         $status = $app->modelsManager->executeQuery($phql);
         $data = array();
