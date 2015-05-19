@@ -23,10 +23,7 @@ class Formats {
             $response = new Phalcon\Http\Response();
             $response->setHeader("Content-type", "application/xml");
             $arr = $this->returnJSON($data);
-            /*echo '<pre>';
-            var_dump($arr);die();*/
             $obj = new Array2XML();
-           // $xml = $obj->convert(array('gghgf' => 'dfhg', 'dfhg' => 'dfhg'));
             $xml = $obj->convert($arr);
             $response->setContent($xml);
             $response->send();
@@ -63,27 +60,7 @@ class Formats {
             return $this->data;
         }
     }
-
-    private function returnXML($arr) {
-       // header("content-type: application/xml; utf-8");
-        $xml = new DOMDocument("1.0", "UTF-8");
-
-        $xml_root = $xml->createElement("data");
-        for($i=0;$i<count($arr);$i++)
-        {
-            $xml_item = $xml->createElement( "Autos");
-            $xml_root->appendChild($xml_item);
-            $node = $arr[$i];
-            foreach($node as $key=>$val)
-            {
-                $xml_child = $xml->createElement($key, $val);
-                $xml_item->appendChild($xml_child);
-            }
-        }
-        $xml->appendChild($xml_root);
-        print_r($xml);
-    }
-
+    
     private function returnHTML($arr) {
         $th = '<tr>';
         $output = '<tr>';
