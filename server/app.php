@@ -92,11 +92,10 @@ $app->put('/api/autos/login', function() use ($app) {
     $email = $app->request->getPut('email');
     $pass = $app->request->getPut('pass');
     $phql = "SELECT * FROM UsersRest WHERE email = '$email' AND pass = '$pass'";
-    /*$user = $app->modelsManager->executeQuery($phql, array(
+    $user = $app->modelsManager->executeQuery($phql, array(
         'email' => $email,
         'pass' => $pass
-    ));*/
-    $user = $app->modelsManager->executeQuery($phql);
+    ))->getFirst();
     if (count($user)) {
         $id = $user->getId();
         echo $id;
