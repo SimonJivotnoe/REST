@@ -29,15 +29,9 @@ $( document ).ready( function ()
     })
 
     $('body').on('click', '.confirmOrderBtn', function(){
-        var name = $('#nameO' ).val();
-        var surname = $('#surnameO' ).val();
         var payment = $('#payment option:selected' ).text();console.log(payment);
         var id = $(this).attr('name');console.log(id);
-        if (name.length > 0 && surname.length > 0) {
-            confirmOrder(name, surname, payment, id);
-        } else {
-
-        }
+         confirmOrder(payment, id);
     });
 
     $('.baner').on('click', function(){
