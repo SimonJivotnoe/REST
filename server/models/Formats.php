@@ -25,6 +25,8 @@ class Formats {
             $arr = $this->returnJSON($data);
             $obj = new Array2XML();
             $xml = $obj->convert($arr);
+            echo $xml;
+            die();
             $response->setContent($xml);
             $response->send();
         } else if ('html' == $this->format) {
