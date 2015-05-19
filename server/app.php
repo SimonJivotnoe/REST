@@ -98,6 +98,8 @@ $app->put('/api/autos/login', function() use ($app) {
     ))->getFirst();
     $id = '';
     if (count($user)) {
+        print_r($user);
+        die();
         $id = $user->getId();
         echo $id;
         die();
