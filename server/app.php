@@ -75,7 +75,7 @@ $app->post('/api/autos', function() use ($app) {
     ));
     $response = new Phalcon\Http\Response();
     if ($status->success() == true) {
-        $response->setStatusCode(201, "Created");
+        $response->setStatusCode(666, "Created");
         $id = $status->getModel()->id;
         $response->setJsonContent(array('status' => 'OK', 'data' => $id));
     } else {
