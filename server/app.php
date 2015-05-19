@@ -98,8 +98,6 @@ $app->put('/api/autos/login', function() use ($app) {
     ))->getFirst();
     if (count($user)) {
         $id = $user->getId();
-        echo $id;
-        die();
         $token = md5(time() . $id);
         $phql = "UPDATE UsersRest SET token = '$token' WHERE id = $id";
         $status = $app->modelsManager->executeQuery($phql);
