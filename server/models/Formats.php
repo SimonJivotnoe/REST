@@ -26,9 +26,7 @@ class Formats {
             /*echo '<pre>';
             var_dump($arr);die();*/
             $obj = new Array2XML();
-            $xml = $obj->convert(array('g' => 'dfhg', 'dfhg' => 'dfhg'));
-            echo $xml;
-            die();
+            $xml = $obj->convert(array('gghgf' => 'dfhg', 'dfhg' => 'dfhg'));
             $response->setContent($xml);
             $response->send();
         } else if ('html' == $this->format) {
