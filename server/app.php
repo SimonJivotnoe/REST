@@ -96,7 +96,7 @@ $app->put('/api/autos/login', function() use ($app) {
         'email' => $email,
         'pass' => $pass
     ))->getFirst();*/
-    $user = $app->modelsManager->executeQuery($phql)->getFirst();
+    $user = $app->modelsManager->executeQuery($phql);
     print_r($user);
         die();
     $id = '';
