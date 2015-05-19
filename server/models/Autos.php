@@ -1,6 +1,10 @@
 <?php
+use Phalcon\Mvc\Model,
+    Phalcon\Validation,
+    Phalcon\Mvc\Model\Validator\Email,
+    Phalcon\Mvc\Model\Validator\Uniqueness;
 
-class Autos extends \Phalcon\Mvc\Model
+class Autos extends Model
 {
 
     /**
@@ -262,6 +266,14 @@ class Autos extends \Phalcon\Mvc\Model
     public function getPrice()
     {
         return $this->price;
+    }
+
+    /**
+     * Initialize method for model.
+     */
+    public function initialize()
+    {
+        $this->hasMany('id', '\Phalcon\Mvc\Model\Orders', 'car_id', array('alias' => 'Orders'));
     }
 
     public function getSource()
