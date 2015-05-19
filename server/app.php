@@ -97,7 +97,7 @@ $app->post('/api/autos/addOrder', function() use ($app) {
     ))->getFirst();
     if (count($user)) {
         $payment = $app->request->getPost('payment');
-        $car_id = $app->request->getPost('id');
+        $car_id = $app->request->getPost('car_id');
         $id = $user->getId();
         $phql = "INSERT INTO Orders (car_id, user_id, payment) VALUES (:car_id:, :user_id:, :payment:)";
     $status = $app->modelsManager->executeQuery($phql, array(
