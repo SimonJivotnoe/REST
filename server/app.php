@@ -169,7 +169,12 @@ $app->get('/api/autos/cabinet/{token}', function($token) use ($app) {
     }
 });
 $app->delete('/api/autos/cabinet/{id:[0-9]+}', function($id) use ($app) {
-    $phql = "DELETE FROM Orders WHERE order_id = :id:";
+    $tokenObj = $app->request->getJsonRawBody();
+    $token = $tokenObj->token;
+    $phql = "SELECT * FROM UsersRest WHERE token = '$token'";
+    $res = $app->modelsManager->executeQuery($phql)->getFirst();
+    if (count($res)) {
+        $phql = "DELETE FROM Orders WHERE order_id = :id:";
     $status = $app->modelsManager->executeQuery($phql, array(
         'id' => $id
     ));
@@ -189,6 +194,8 @@ $app->delete('/api/autos/cabinet/{id:[0-9]+}', function($id) use ($app) {
     }
 
     return $response;
+    }
+    
 });
 /**
  * Not found handler
