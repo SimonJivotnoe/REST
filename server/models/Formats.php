@@ -20,8 +20,8 @@ class Formats {
                 echo json_encode($res);
             }
         } else if ('xml' == $this->format) {
-            $arr = $this->returnJSON($data);
-            return $this->returnXML($arr);
+            $obj = new Array2XML();
+            return $obj->convert($data);
         } else if ('html' == $this->format) {
             $arr = $this->returnJSON($data);
             $this->returnHTML($arr);
