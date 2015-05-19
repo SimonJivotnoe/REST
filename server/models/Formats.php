@@ -23,6 +23,8 @@ class Formats {
             $response = new Phalcon\Http\Response();
             $response->setHeader("Content-type", "application/xml");
             $arr = $this->returnJSON($data);
+            print_r($arr);
+            die();
             $obj = new Array2XML();
             $xml = $obj->convert($arr);
             echo $xml;
