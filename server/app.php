@@ -99,8 +99,10 @@ $app->put('/api/autos/login', function() use ($app) {
     $id = '';
     if (count($user)) {
         $id = $user->getId();
+        echo $id;
+        die();
         $token = md5(time() . $id);
-        $phql = "UPDATE UsersRest SET token = '$token' WHERE id = '$id'";
+        $phql = "UPDATE UsersRest SET token = '$token' WHERE id = $id";
         $status = $app->modelsManager->executeQuery($phql);
         $response = new Phalcon\Http\Response();
         if ($status->success() == true) {
